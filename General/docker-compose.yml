@@ -1,0 +1,18 @@
+version: '3.4'
+ 
+networks:
+  generalapicontainer-dev:
+    driver: bridge 
+ 
+services:
+  generalapicontainer:
+    image: generalapicontainer:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:80"     
+    environment:
+      DB_CONNECTION_STRING: "host=host.docker.internal;port=5432;database=generalbus;username=postgres;password=;"
+    networks:
+      - generalapicontainer-dev

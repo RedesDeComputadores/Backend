@@ -1,0 +1,860 @@
+openapi: 3.0.1
+info:
+  description: "This documentation details the services available in this API.  To use the API, the following commands must be executed: `cd General` locating in the internal directory ./General/General `docker build -t viwit-general .` `docker-compose build` `docker-compose up`"
+  title: API - Viwit General
+  version: v1
+servers:
+  - url: http://localhost:3000
+    description: Production server
+  - url: http://localhost:3000
+    description: Sandbox server
+paths:
+  /Bus:
+    get:
+      tags:
+        - Bus
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Bus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bus'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Bus'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Bus'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Bus'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bus'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Bus'
+  '/Bus/{licensePlateBus}':
+    get:
+      tags:
+        - Bus
+      parameters:
+        - name: licensePlateBus
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Bus'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bus'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Bus'
+    put:
+      tags:
+        - Bus
+      parameters:
+        - name: licensePlateBus
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bus'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Bus'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Bus'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Bus'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bus'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Bus'
+    delete:
+      tags:
+        - Bus
+      parameters:
+        - name: licensePlateBus
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Bus'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bus'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Bus'
+  /BusStop:
+    get:
+      tags:
+        - BusStop
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - BusStop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusStop'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusStop'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusStop'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Message'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  '/BusStop/{IdBusStop}':
+    get:
+      tags:
+        - BusStop
+      parameters:
+        - name: IdBusStop
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+    put:
+      tags:
+        - BusStop
+      parameters:
+        - name: IdBusStop
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusStop'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusStop'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusStop'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+    delete:
+      tags:
+        - BusStop
+      parameters:
+        - name: IdBusStop
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BusStop'
+  /Driver:
+    get:
+      tags:
+        - Driver
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Driver
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+  '/Driver/{DriversLicense}':
+    get:
+      tags:
+        - Driver
+      parameters:
+        - name: DriversLicense
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+    put:
+      tags:
+        - Driver
+      parameters:
+        - name: DriversLicense
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+    delete:
+      tags:
+        - Driver
+      parameters:
+        - name: DriversLicense
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+  /Route:
+    get:
+      tags:
+        - Route
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Route
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Route'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Route'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Route'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Message'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  '/Route/{IdRoute}':
+    get:
+      tags:
+        - Route
+      parameters:
+        - name: IdRoute
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Route'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+    put:
+      tags:
+        - Route
+      parameters:
+        - name: IdRoute
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Route'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Route'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Route'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Route'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+    delete:
+      tags:
+        - Route
+      parameters:
+        - name: IdRoute
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Route'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+  /RouteStops:
+    get:
+      tags:
+        - RouteStops
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - RouteStops
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteStops'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RouteStops'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RouteStops'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Message'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  '/RouteStops/RouteId/{Route_IdRoute}':
+    get:
+      tags:
+        - RouteStops
+      parameters:
+        - name: Route_IdRoute
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  '/RouteStops/Route/{Route_IdRoute}/BusStop/{BusStop_IdBusStop}/positionRouteStops/{positionRouteStops}':
+    get:
+      tags:
+        - RouteStops
+      parameters:
+        - name: Route_IdRoute
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: BusStop_IdBusStop
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: positionRouteStops
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RouteStops'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteStops'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RouteStops'
+    delete:
+      tags:
+        - RouteStops
+      parameters:
+        - name: Route_IdRoute
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: BusStop_IdBusStop
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: positionRouteStops
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RouteStops'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteStops'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RouteStops'
+  '/RouteStops/Route/{Route_IdRoute}/BusStop/{BusStop_IdBusStop}':
+    get:
+      tags:
+        - RouteStops
+      parameters:
+        - name: Route_IdRoute
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: BusStop_IdBusStop
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /Trip:
+    get:
+      tags:
+        - Trip
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Trip
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Message'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  '/Trip/Route/{Route_IdRoute}/LicensePlateBus/{Bus_LicensePlateBus}/DriversLicense/{Driver_DriversLicense}':
+    get:
+      tags:
+        - Trip
+      parameters:
+        - name: Route_IdRoute
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Bus_LicensePlateBus
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Driver_DriversLicense
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/Trip/{IdTrip}':
+    get:
+      tags:
+        - Trip
+      parameters:
+        - name: IdTrip
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Trip'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+    put:
+      tags:
+        - Trip
+      parameters:
+        - name: IdTrip
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Trip'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+    delete:
+      tags:
+        - Trip
+      parameters:
+        - name: IdTrip
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Trip'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+components:
+  schemas:
+    Bus:
+      type: object
+      properties:
+        licensePlateBus:
+          type: string
+          nullable: true
+        model:
+          type: string
+          nullable: true
+        seatedPassengerCapacity:
+          type: integer
+          format: int32
+        standingPassengerCapacity:
+          type: integer
+          format: int32
+      additionalProperties: false
+    BusStop:
+      type: object
+      properties:
+        idBusStop:
+          type: integer
+          format: int32
+        nameOrAddressBusStop:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Driver:
+      type: object
+      properties:
+        driversLicense:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        driverExperience:
+          type: integer
+          format: int32
+        averageDriverRating:
+          type: string
+          nullable: true
+        userIdDriver:
+          type: integer
+          format: int32
+      additionalProperties: false
+    Message:
+      type: object
+      properties:
+        message:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Route:
+      type: object
+      properties:
+        idRoute:
+          type: integer
+          format: int32
+        nameRoute:
+          type: string
+          nullable: true
+        initialBusStop:
+          type: string
+          nullable: true
+        finalBusStop:
+          type: string
+          nullable: true
+        approximateDuration:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RouteStops:
+      type: object
+      properties:
+        route_IdRoute:
+          type: integer
+          format: int32
+        busStop_IdBusStop:
+          type: integer
+          format: int32
+        positionRouteStops:
+          type: integer
+          format: int32
+      additionalProperties: false
+    Trip:
+      type: object
+      properties:
+        idTrip:
+          type: integer
+          format: int32
+        route_IdRoute:
+          type: integer
+          format: int32
+        bus_LicensePlateBus:
+          type: string
+          nullable: true
+        driver_DriversLicense:
+          type: string
+          nullable: true
+        busStop_IdBusStop:
+          type: integer
+          format: int32
+        currentTripOccupation:
+          type: integer
+          format: int32
+        startDate:
+          type: string
+          format: date-time
+        tripStatus:
+          type: string
+          nullable: true
+        totalPassengersTrip:
+          type: integer
+          format: int32
+      additionalProperties: false
