@@ -125,6 +125,57 @@ namespace General.Controllers
             _context.Trips.Add(tripAux);
             await _context.SaveChangesAsync();
 
+            DateTime midnight = DateTime.Now.Date;
+            string dateNowWeekday = DateTime.Now.ToString("dddd");
+            string dateNow = DateTime.Now.ToString();
+            try
+            {
+                var tripHistoryObject = _context.TripHistorys.Where(b => b.TimeZoneTripHistory.Equals(trip.TimeZoneTrip)
+                                                                    && b.Route_IdRoute.Equals(trip.Route_IdRoute)
+                                                                    && b.DateTripHistory >= midnight
+                                                                    && dateNowWeekday == b.WeekdayTripHistory)
+                .Select((c) => new {
+                    IdTripHistory = c.IdTripHistory,
+                    Route_IdRoute = c.Route_IdRoute,
+                    WeekdayTripHistory = c.WeekdayTripHistory,
+                    DateTripHistory = c.DateTripHistory,
+                    TimeZoneTripHistory = c.TimeZoneTripHistory,
+                    PassengersPickedUpTripHistory = c.PassengersPickedUpTripHistory,
+                    PassengerCapacityTripHistory = c.PassengerCapacityTripHistory,
+                    SupplyFactorTripHistory = c.SupplyFactorTripHistory,
+                    NumberOfBusesOfferedTripHistory = c.NumberOfBusesOfferedTripHistory
+                }).ToList();
+
+                if (tripHistoryObject.Count() == 0)
+                {
+                    TripHistory tripHistory = new TripHistory();
+                    tripHistory.Route_IdRoute = trip.Route_IdRoute;
+                    tripHistory.WeekdayTripHistory = DateTime.Now.ToString("dddd");
+                    tripHistory.DateTripHistory = DateTime.Now;
+                    tripHistory.TimeZoneTripHistory = trip.TimeZoneTrip;
+                    tripHistory.PassengersPickedUpTripHistory = trip.TotalPassengersTrip;
+                    tripHistory.PassengerCapacityTripHistory = trip.MaximumCapacityTrip;
+                    tripHistory.SupplyFactorTripHistory = Convert.ToDouble(trip.TotalPassengersTrip) / Convert.ToDouble(trip.MaximumCapacityTrip);
+                    tripHistory.NumberOfBusesOfferedTripHistory = 1;
+                    _context.TripHistorys.Add(tripHistory);
+                }
+                else
+                {
+                    var tripHistoryAuxiliar = await _context.TripHistorys.FindAsync(tripHistoryObject.ElementAt(0).IdTripHistory);
+                    tripHistoryAuxiliar.PassengerCapacityTripHistory += tripAux.MaximumCapacityTrip;
+                    tripHistoryAuxiliar.PassengersPickedUpTripHistory += tripAux.TotalPassengersTrip;
+                    tripHistoryAuxiliar.SupplyFactorTripHistory = Convert.ToDouble(tripHistoryAuxiliar.PassengersPickedUpTripHistory) / Convert.ToDouble(tripHistoryAuxiliar.PassengerCapacityTripHistory);
+                    tripHistoryAuxiliar.NumberOfBusesOfferedTripHistory++;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception ==========>>>> " + e);                
+            }
+
+            await _context.SaveChangesAsync();
+
             var message = new Message("Trip successfully added");
 
             return message;

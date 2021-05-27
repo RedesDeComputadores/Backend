@@ -9,7 +9,7 @@ namespace General.Maps
     {
         public TripHistoryMap(EntityTypeBuilder<TripHistory> entityBuilder)
         {
-            entityBuilder.HasKey(x => new { x.IdTripHistory, x.Route_IdRoute });
+            entityBuilder.HasKey(x => new { x.IdTripHistory});
             entityBuilder.ToTable("TripHistory");
 
             entityBuilder.Property(x => x.IdTripHistory).HasColumnName("IdTripHistory");

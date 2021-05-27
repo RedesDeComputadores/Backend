@@ -35,3 +35,11 @@
 /Users/felipepineda/Projects/Viwit/General/General/obj/Debug/netcoreapp3.1/General.dll
 /Users/felipepineda/Projects/Viwit/General/General/obj/Debug/netcoreapp3.1/General.pdb
 /Users/felipepineda/Projects/Viwit/General/General/obj/Debug/netcoreapp3.1/General.genruntimeconfig.cache
+/Users/feliperiano/Desktop/GeneralBus/General/obj/Debug/netcoreapp3.1/General.csprojAssemblyReference.cache
+/Users/feliperiano/Desktop/GeneralBus/General/obj/Debug/netcoreapp3.1/General.AssemblyInfoInputs.cache
+/Users/feliperiano/Desktop/GeneralBus/General/obj/Debug/netcoreapp3.1/General.AssemblyInfo.cs
+/Users/feliperiano/Desktop/GeneralBus/General/obj/Debug/netcoreapp3.1/General.csproj.CoreCompileInputs.cache
+/Users/feliperiano/Desktop/GeneralBus/General/obj/Debug/netcoreapp3.1/General.MvcApplicationPartsAssemblyInfo.cs
+/Users/feliperiano/Desktop/GeneralBus/General/obj/Debug/netcoreapp3.1/General.MvcApplicationPartsAssemblyInfo.cache
+/Users/feliperiano/Desktop/GeneralBus/General/obj/Debug/netcoreapp3.1/General.dll
+/Users/feliperiano/Desktop/GeneralBus/General/obj/Debug/netcoreapp3.1/General.pdb

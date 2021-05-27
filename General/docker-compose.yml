@@ -13,6 +13,6 @@ services:
     ports:
       - "4000:80"     
     environment:
-      DB_CONNECTION_STRING: "host=host.docker.internal;port=5432;database=generalbus;username=postgres;password=;"
+      DB_CONNECTION_STRING: "host=ec2-3-212-75-25.compute-1.amazonaws.com;port=5432;database=debpt12073cebj;username=ekwnqrnmnysdkq;password=113b943abfdc5dc1cf9d327515a39d82581253b099da017c41ae48973839bbd2;SSL Mode=Require;Trust Server Certificate=true"
     networks:
       - generalapicontainer-dev

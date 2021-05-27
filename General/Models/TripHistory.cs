@@ -26,7 +26,7 @@ namespace General.Models
 
         public double SupplyFactorTripHistory {get; set; }
 
-        public string NumberOfBusesOfferedTripHistory {get; set; }
+        public int NumberOfBusesOfferedTripHistory {get; set; }
 
     }
 }

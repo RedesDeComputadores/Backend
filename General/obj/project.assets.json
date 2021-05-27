@@ -870,19 +870,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/felipepineda/.nuget/packages/": {}
+    "/Users/feliperiano/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/felipepineda/Projects/Viwit/General/General/General.csproj",
+      "projectUniqueName": "/Users/feliperiano/Desktop/GeneralBus/General/General.csproj",
       "projectName": "General",
-      "projectPath": "/Users/felipepineda/Projects/Viwit/General/General/General.csproj",
-      "packagesPath": "/Users/felipepineda/.nuget/packages/",
-      "outputPath": "/Users/felipepineda/Projects/Viwit/General/General/obj/",
+      "projectPath": "/Users/feliperiano/Desktop/GeneralBus/General/General.csproj",
+      "packagesPath": "/Users/feliperiano/.nuget/packages/",
+      "outputPath": "/Users/feliperiano/Desktop/GeneralBus/General/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/felipepineda/.config/NuGet/NuGet.Config"
+        "/Users/feliperiano/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -929,6 +929,16 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -937,7 +947,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
       }
     }
   }

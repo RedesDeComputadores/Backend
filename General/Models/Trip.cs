@@ -10,7 +10,7 @@ namespace General.Models
         {
         }
 
-        public int IdTrip { get; set; }
+        public int? IdTrip { get; set; }
 
         public int Route_IdRoute { get; set; }
 
