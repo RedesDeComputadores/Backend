@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using General.Controllers;
 using General.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace General.Controllers
 {
@@ -22,6 +23,7 @@ namespace General.Controllers
         }
 
         [HttpGet]
+        [EnableCors]
         public object GetTrip()
         {
             return _context.Trips.Where(b => 1 > 0).Select((c) => new
@@ -39,6 +41,7 @@ namespace General.Controllers
         }
 
         [HttpGet("Route/{Route_IdRoute}/LicensePlateBus/{Bus_LicensePlateBus}/DriversLicense/{Driver_DriversLicense}")]
+        [EnableCors]
         public object GetTripAccordingToRouteBusDriver(int Route_IdRoute, string Bus_LicensePlateBus, string Driver_DriversLicense)
         {
             return _context.Trips.Where(b => b.Route_IdRoute.Equals(Route_IdRoute) 
@@ -58,6 +61,7 @@ namespace General.Controllers
         }
 
         [HttpGet("{IdTrip}")]
+        [EnableCors]
         public async Task<ActionResult<Trip>> GetTrip(int IdTrip)
         {
             var trip = await _context.Trips.FindAsync(IdTrip);
@@ -71,6 +75,7 @@ namespace General.Controllers
         }
 
         [HttpPut("{IdTrip}")]
+        [EnableCors]
         public async Task<ActionResult<Trip>> Updatebus(int IdTrip, Trip trip)
         {
             if (IdTrip != trip.IdTrip)
@@ -108,6 +113,7 @@ namespace General.Controllers
         }
 
         [HttpPost]
+        [EnableCors]
         public async Task<ActionResult<Message>> Createbus(Trip trip)
         {
             var tripAux = new Trip
@@ -182,6 +188,7 @@ namespace General.Controllers
         }
 
         [HttpDelete("{IdTrip}")]
+        [EnableCors]
         public async Task<ActionResult<Trip>> Deletebus(int IdTrip)
         {
             var trip = await _context.Trips.FindAsync(IdTrip);

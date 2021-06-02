@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using General.Controllers;
 using General.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace General.Controllers
 {
@@ -22,6 +23,7 @@ namespace General.Controllers
         }
 
         [HttpGet]
+        [EnableCors]
         public object GetBusStop()
         {
             return _context.BusStops.Where(b => b.IdBusStop >= 0).Select((c) => new
@@ -32,6 +34,7 @@ namespace General.Controllers
         }
 
         [HttpGet("{IdBusStop}")]
+        [EnableCors]
         public async Task<ActionResult<BusStop>> GetBusStop(int IdBusStop)
         {
             var busStop = await _context.BusStops.FindAsync(IdBusStop);
@@ -45,6 +48,7 @@ namespace General.Controllers
         }
 
         [HttpPut("{IdBusStop}")]
+        [EnableCors]
         public async Task<ActionResult<BusStop>> UpdateBusStop(int IdBusStop, BusStop busStop)
         {
             if (IdBusStop != busStop.IdBusStop)
@@ -74,6 +78,7 @@ namespace General.Controllers
         }
 
         [HttpPost]
+        [EnableCors]
         public async Task<ActionResult<Message>> CreateBusStop(BusStop busStop)
         {
             var busStopAux = new BusStop
@@ -90,6 +95,7 @@ namespace General.Controllers
         }
 
         [HttpDelete("{IdBusStop}")]
+        [EnableCors]
         public async Task<ActionResult<BusStop>> DeleteBusStop(int IdBusStop)
         {
             var busStop = await _context.BusStops.FindAsync(IdBusStop);

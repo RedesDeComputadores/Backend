@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using General.Controllers;
 using General.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace General.Controllers
 {
@@ -22,6 +23,7 @@ namespace General.Controllers
         }
 
         [HttpGet]
+        [EnableCors]
         public object GetBus()
         {
             return _context.Buses.Where(b => b.LicensePlateBus.Contains("")).Select((c) => new
@@ -34,6 +36,7 @@ namespace General.Controllers
         }
 
         [HttpGet("{licensePlateBus}")]
+        [EnableCors]
         public async Task<ActionResult<Bus>> Getbus(string licensePlateBus)
         {
             var bus = await _context.Buses.FindAsync(licensePlateBus);
@@ -47,6 +50,7 @@ namespace General.Controllers
         }
 
         [HttpPut("{licensePlateBus}")]
+        [EnableCors]
         public async Task<ActionResult<Bus>> Updatebus(string licensePlateBus, Bus Bus)
         {
             if (licensePlateBus != Bus.LicensePlateBus)
@@ -79,6 +83,7 @@ namespace General.Controllers
         }
 
         [HttpPost]
+        [EnableCors]
         public async Task<ActionResult<Bus>> Createbus(Bus bus)
         {
             var busAux = new Bus
@@ -99,6 +104,7 @@ namespace General.Controllers
         }
 
         [HttpDelete("{licensePlateBus}")]
+        [EnableCors]
         public async Task<ActionResult<Bus>> Deletebus(string licensePlateBus)
         {
             var bus = await _context.Buses.FindAsync(licensePlateBus);

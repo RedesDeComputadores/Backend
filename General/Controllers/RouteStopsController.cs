@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using General.Controllers;
 using General.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace General.Controllers
 {
@@ -22,6 +23,7 @@ namespace General.Controllers
         }
 
         [HttpGet]
+        [EnableCors]
         public object GetRouteStops()
         {
             return _context.RouteStops_s.Where(b => b.Route_IdRoute >= 0).Select((c) => new
@@ -33,6 +35,7 @@ namespace General.Controllers
         }
 
         [HttpGet("RouteId/{Route_IdRoute}")]
+        [EnableCors]
         public object GetBusStopsByIdRoute(int Route_IdRoute)
         {
             var res = _context.RouteStops_s.Join(_context.Routes,
@@ -58,6 +61,7 @@ namespace General.Controllers
         }
 
         [HttpGet("Route/{Route_IdRoute}/BusStop/{BusStop_IdBusStop}/positionRouteStops/{positionRouteStops}")]
+        [EnableCors]
         public async Task<ActionResult<RouteStops>> GetRouteStopsAccoidingToIdRouteAndIdStopPosition(int Route_IdRoute, int BusStop_IdBusStop, int positionRouteStops)
         {
             var routeStops = await _context.RouteStops_s.FindAsync(Route_IdRoute, BusStop_IdBusStop, positionRouteStops);
@@ -71,6 +75,7 @@ namespace General.Controllers
         }
 
         [HttpGet("Route/{Route_IdRoute}/BusStop/{BusStop_IdBusStop}")]
+        [EnableCors]
         public async Task<ActionResult<object>> GetRouteStopsAccoidingToIdRouteAndIdStop(int Route_IdRoute, int BusStop_IdBusStop)
         {
             return _context.RouteStops_s.Where(b => b.Route_IdRoute == Route_IdRoute && b.BusStop_IdBusStop == BusStop_IdBusStop).Select((c) => new
@@ -83,6 +88,7 @@ namespace General.Controllers
         }
 
         [HttpPost]
+        [EnableCors]
         public async Task<ActionResult<Message>> CreateRouteStops(RouteStops routeStops)
         {
             var routeStopsAux = new RouteStops
@@ -101,6 +107,7 @@ namespace General.Controllers
         }
 
         [HttpDelete("Route/{Route_IdRoute}/BusStop/{BusStop_IdBusStop}/positionRouteStops/{positionRouteStops}")]
+        [EnableCors]
         public async Task<ActionResult<RouteStops>> DeleteRouteStopsAccordingToIdRouteAndIdStopAndPosition(int route_IdRoute, int busStop_IdBusStop, int PositionRouteStops)
         {
             RouteStops routeStops = new RouteStops

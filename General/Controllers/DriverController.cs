@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using General.Controllers;
 using General.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace General.Controllers
 {
@@ -22,6 +23,7 @@ namespace General.Controllers
         }
 
         [HttpGet]
+        [EnableCors]
         public object GetDriver()
         {
             return _context.Drivers.Where(b => b.DriversLicense.Contains("")).Select((c) => new
@@ -34,6 +36,7 @@ namespace General.Controllers
         }
 
         [HttpGet("{DriversLicense}")]
+        [EnableCors]
         public async Task<ActionResult<Driver>> GetDriver(string DriversLicense)
         {
             var driver = await _context.Drivers.FindAsync(DriversLicense);
@@ -47,6 +50,7 @@ namespace General.Controllers
         }
 
         [HttpPut("{DriversLicense}")]
+        [EnableCors]
         public async Task<ActionResult<Driver>> UpdateDriver(string DriversLicense, Driver driver)
         {
             if (DriversLicense != driver.DriversLicense)
@@ -79,6 +83,7 @@ namespace General.Controllers
         }
 
         [HttpPost]
+        [EnableCors]
         public async Task<ActionResult<Driver>> Createbus(Driver driver)
         {
             var driverAux = new Driver
@@ -99,6 +104,7 @@ namespace General.Controllers
         }
 
         [HttpDelete("{DriversLicense}")]
+        [EnableCors]
         public async Task<ActionResult<Driver>> Deletebus(string DriversLicense)
         {
             var driver = await _context.Drivers.FindAsync(DriversLicense);

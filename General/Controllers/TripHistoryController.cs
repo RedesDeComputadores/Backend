@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using General.Controllers;
 using General.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace General.Controllers
 {
@@ -22,6 +23,7 @@ namespace General.Controllers
         }
 
         [HttpGet("weekDay/{weekDay}/idRoute/{idRoute}/supplyFactorTrip/{supplyFactorTrip}/timeZone/{timeZone}")]
+        [EnableCors]
         public object GetNumberBuses(string weekDay, int timeZone, int idRoute,int supplyFactorTrip)
         {
             var tripHistoryObject = _context.TripHistorys.Where(b => b.TimeZoneTripHistory.Equals(timeZone)

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using General.Controllers;
 using General.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace General.Controllers
 {
@@ -22,6 +23,7 @@ namespace General.Controllers
         }
 
         [HttpGet]
+        [EnableCors]
         public object GetRoute()
         {
             return _context.Routes.Where(b => b.IdRoute >= 0).Select((c) => new
@@ -35,6 +37,7 @@ namespace General.Controllers
         }
 
         [HttpGet("{IdRoute}")]
+        [EnableCors]
         public async Task<ActionResult<Route>> GetRoute(int IdRoute)
         {
             var route = await _context.Routes.FindAsync(IdRoute);
@@ -48,6 +51,7 @@ namespace General.Controllers
         }
 
         [HttpPut("{IdRoute}")]
+        [EnableCors]
         public async Task<ActionResult<Route>> UpdateRoute(int IdRoute, Route route)
         {
             if (IdRoute != route.IdRoute)
@@ -80,6 +84,7 @@ namespace General.Controllers
         }
 
         [HttpPost]
+        [EnableCors]
         public async Task<ActionResult<Message>> CreateRoute(Route route)
         {
             var routeAux = new Route
@@ -99,6 +104,7 @@ namespace General.Controllers
         }
 
         [HttpDelete("{IdRoute}")]
+        [EnableCors]
         public async Task<ActionResult<Route>> DeleteRoute(int IdRoute)
         {
             var route = await _context.Routes.FindAsync(IdRoute);
